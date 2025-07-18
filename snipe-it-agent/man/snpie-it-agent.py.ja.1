@@ -1,0 +1,58 @@
+.TH SNIPE_AGENT 1 "May 2025" "Version 1.0" "User Commands"
+.SH NAME
+snipe_agent \- PC 情報を収集し、Snipe-IT へ資産情報として登録・更新するスクリプト
+.SH SYNOPSIS
+.B python snipe_agent.py [options]
+.SH DESCRIPTION
+.B snipe_agent.py
+は、実行中の PC から各種情報（ホスト名、IP アドレス、OS、CPU、ディスク、デバイス、インストール済みアプリケーションなど）を収集し、Snipe-IT API を通じて資産情報として新規登録または更新します。
+
+.SH OPTIONS
+.TP
+.B \\-h, \\--help
+ヘルプメッセージを表示します。
+.TP
+.B \\-d, \\--debug
+デバッグ出力を有効にします。
+.TP
+.B \\--model-id MODEL_ID
+使用するモデル ID を指定します。
+.TP
+.B \\--fieldset-id FIELDSET_ID
+使用するフィールドセット ID を指定します。
+.TP
+.B \\--asset-name NAME
+ホスト名の代わりに指定した資産名を使用します。
+
+.SH CONFIGURATION
+設定は、同ディレクトリ内の 
+.I snipe_config.py
+ファイルから読み込まれます。
+以下を定義する必要があります:
+.RS
+\- SNIPE_URL: Snipe-IT の API URL（例: https://example.com/api/v1）
+\- API_TOKEN: 認証用 API トークン
+\- 各カスタムフィールドのキー名（例: OSinfo, IPField, DiskField など）
+.RE
+
+.SH EXAMPLES
+.TP
+.B python snipe_agent.py --model-id 1 --fieldset-id 2
+モデル ID 1、フィールドセット ID 2 を指定して実行します。
+.TP
+.B python snipe_agent.py --asset-name custom-pc
+資産名 "custom-pc" を指定して実行します。
+.TP
+.B python snipe_agent.py --debug
+デバッグ出力を有効にして実行します。
+
+.SH FILES
+.I snipe_config.py
+\- 接続およびカスタムフィールド設定ファイル
+
+.SH AUTHOR
+作成者: ユーザー指定
+
+.SH SEE ALSO
+.BR get_fieldsets.py (1),
+.BR get_models.py (1)

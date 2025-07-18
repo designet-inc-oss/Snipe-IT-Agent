@@ -1,0 +1,36 @@
+.TH GET_FIELDSETS 1 "May 2025" "Version 1.0" "User Commands"
+.SH NAME
+get_fieldsets \- Snipe-IT から利用可能なフィールドセット一覧を取得するスクリプト
+.SH SYNOPSIS
+.B python get_fieldsets.py
+.SH DESCRIPTION
+.B get_fieldsets.py
+は、Snipe-IT インスタンスから API を通じてフィールドセット一覧を取得し、表示します。
+
+.SH OPTIONS
+
+.SH CONFIGURATION
+設定は、同ディレクトリ内の 
+.I snipe_config.py
+ファイルから読み込まれます。
+以下を定義する必要があります:
+.RS
+\- SNIPE_URL: Snipe-IT の API URL（例: https://example.com/api/v1）
+\- API_TOKEN: 認証用 API トークン
+.RE
+
+.SH EXAMPLES
+.TP
+.B python get_fieldsets.py
+デフォルト設定でフィールドセット一覧を取得します。
+
+.SH FILES
+.I snipe_config.py
+\- 接続設定ファイル
+
+.SH AUTHOR
+作成者: ユーザー指定
+
+.SH SEE ALSO
+.BR snipe-it-agent.py (1),
+.BR get_models.py (1)

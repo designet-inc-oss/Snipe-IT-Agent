@@ -1,0 +1,35 @@
+.TH GET_FIELDSETS 1 "May 2025" "Version 1.0" "User Commands"
+.SH NAME
+get_fieldsets \- Retrieve and display available fieldsets from the Snipe-IT system
+.SH SYNOPSIS
+.B python get_fieldsets.py
+.SH DESCRIPTION
+.B get_fieldsets.py
+is a command-line tool that queries the Snipe-IT API and retrieves the list of fieldsets defined in the system, displaying them in a readable format.
+
+.SH OPTIONS
+
+.SH CONFIGURATION
+The script reads configuration settings from the 
+.I snipe_config.py
+ file in the same directory. Required definitions include:
+.RS
+- SNIPE_URL: The API URL of the Snipe-IT server (e.g., https://example.com/api/v1)
+- API_TOKEN: The API token for authentication
+.RE
+
+.SH EXAMPLES
+.TP
+.B python get_fieldsets.py
+Run the script and display available fieldsets.
+
+.SH FILES
+.I snipe_config.py
+- Configuration file with connection and authentication details
+
+.SH AUTHOR
+Author: User-defined
+
+.SH SEE ALSO
+.BR snipe-it-agent.py (1),
+.BR get_models.py (1)

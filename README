@@ -1,0 +1,61 @@
+                               Snipe-IT-Agent
+
+What is Snipe-IT-Agent
+--------------------
+ Snipe-IT-Agent is software that get Windows OS or Linux OS config data
+ and put them into Snipe-IT.
+ 
+ snipe-it-agent
+ --------
+  Get from one  Windows OS or Linux OS config information 
+  and put them into Snipe-IT.
+  Specify the asset by "--asset-name option" or "computer name".
+
+ get_fieldsets
+ --------
+  Get the ID and name of the fieldset set in Snipe-IT and display it in a list.
+
+ get_models
+ --------
+  Get the ID and name of the asset model in Snipe-IT and display it in a list.
+
+ snipe_config
+ --------
+  Configuration file for Snipe-IT-Agent.
+
+ man/*
+ --------
+  Online manuals for Snipe-IT-Agent.
+
+Requirements
+------------
+ Following softwares are required.
+ * python3
+   * Version 3.9 or later
+ * python3 with extra modules below
+   * requests
+   * psutil
+ * pciutils (Linux OS)
+
+ Related materials below are also required.
+ * Snipe-IT
+   * Version 6.0.13 or later
+ * Operating System
+   * Windows OS 
+     * Windows 11
+     * Windows Server 2025
+   * Linux OS
+     * Red Hat Enterprise Linux 9 
+     * AlmaLinux 9
+     * Ubuntu 24.04
+   * Must be network reachable to Snipe-IT server
+
+Installation
+------------
+ see the file INSTALL.
+
+Contact
+-------
+ DesigNET Inc.
+ e-mail: snipe-it-agent@designet.co.jp
+ URL: https://www.designet.co.jp/

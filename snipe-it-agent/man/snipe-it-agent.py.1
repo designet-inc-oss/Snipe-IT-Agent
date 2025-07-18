@@ -1,0 +1,85 @@
+.TH snipe-it-agent 1 "May 2025" "Snipe-IT Agent Manual" "Snipe-IT Tools"
+.SH NAME
+snipe-it-agent \- Collect system information and register or update assets in Snipe-IT
+.SH SYNOPSIS
+.B snipe-it-agent.py
+[\-\-model-id ID] [\-\-fieldset-id ID] [\-\-asset-name NAME] [\-\-debug]
+.SH DESCRIPTION
+.B snipe-it-agent.py
+is a Python script that collects hardware and software information from a Windows or Linux system and registers it as a new asset or updates an existing asset in the Snipe-IT asset management system using its API.
+
+The script retrieves details such as hostname, IP address, CPU, memory, disks, devices, OS version, and installed applications. It then sends this information to Snipe-IT using its REST API. It uses customizable field mappings defined in
+.B snipe_config.py.
+
+.SH OPTIONS
+.TP
+.B \-\-model-id ID
+Specifies the Snipe-IT model ID for the asset. This option is required.
+.TP
+.B \-\-fieldset-id ID
+Specifies the Snipe-IT fieldset ID for the asset. This option is required.
+.TP
+.B \-\-asset-name NAME
+Specifies the asset name to register or update. If omitted, the system hostname will be used.
+.TP
+.B \-\-debug
+Enables debug output, including API response content and SSL warnings.
+
+.SH CONFIGURATION
+The script reads configuration values from
+.B snipe_config.py.
+This file should define the following:
+.IP \[bu] 2
+SNIPE_URL (e.g., https://your-snipeit-instance/api/v1)
+.IP \[bu]
+API_TOKEN (the API key for Snipe-IT)
+.IP \[bu]
+Field mappings for custom fields, for example:
+.nf
+IPField = '_snipeit_ip_4'
+HostnameField = '_snipeit__2'
+CPUField = '_snipeit_cpu_5'
+MemoryField = '_snipeit__6'
+DiskField = '_snipeit__7'
+DiskInfoField = '_snipeit__8'
+AppsField = '_snipeit__9'
+DeviceInfoField = '_snipeit__11'
+NetworkInfoField = '_snipeit__12'
+OSinfoField = '_snipeit_os_13'
+ComputerInfoField = '_snipeit__10'
+.fi
+
+.SH FUNCTIONALITY
+.IP \[bu] 2
+Collects the first non-loopback IP address.
+.IP \[bu]
+Collects CPU details, including model and core count.
+.IP \[bu]
+Collects memory size.
+.IP \[bu]
+Collects total and detailed disk information.
+.IP \[bu]
+Collects connected device information (using lspci, hwinfo, or WMIC).
+.IP \[bu]
+Collects OS version, including Linux distribution or Windows version.
+.IP \[bu]
+Collects installed applications (via rpm, dpkg, or WMIC).
+.IP \[bu]
+Checks Snipe-IT by asset name; updates if found, creates a new entry if not.
+.IP \[bu]
+Uses Snipe-IT REST API with Bearer token authentication.
+.IP \[bu]
+Displays HTTP response codes always; displays detailed responses only when \-\-debug is used.
+
+.SH SEE ALSO
+.B get_fieldsets.py
+\- Retrieves and lists fieldsets from Snipe-IT.
+.B get_models.py
+\- Retrieves and lists models from Snipe-IT.
+
+.SH REQUIREMENTS
+Requires Python 3.9 or higher.
+Requires the following Python modules: requests, psutil.
+
+.SH AUTHOR
+This tool was developed to integrate with Snipe-IT asset management systems.

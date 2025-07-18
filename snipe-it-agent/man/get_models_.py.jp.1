@@ -1,0 +1,35 @@
+.TH GET_MODELS 1 "2025年5月" "バージョン 1.0" "ユーザーコマンド"
+.SH 名前
+get_models \- Snipe-IT システムから利用可能なモデルを取得・表示する
+.SH 書式
+.B python get_models.py
+.SH 説明
+.B get_models.py
+は、Snipe-IT API にクエリを送り、システムに定義されているモデル一覧を取得し、読みやすい形式で表示するコマンドラインツールです。
+
+.SH オプション
+
+.SH 設定
+スクリプトは同じディレクトリ内の
+.I snipe_config.py
+ファイルから設定を読み込みます。必要な定義は以下の通りです：
+.RS
+- SNIPE_URL: Snipe-IT サーバの API URL（例: https://example.com/api/v1）
+- API_TOKEN: 認証用の API トークン
+.RE
+
+.SH 使用例
+.TP
+.B python get_models.py
+スクリプトを実行し、利用可能なモデルを表示します。
+
+.SH ファイル
+.I snipe_config.py
+- 接続および認証詳細を含む設定ファイル
+
+.SH 作者
+作者: ユーザー定義
+
+.SH 関連項目
+.BR snipe-it-agent.py (1),
+.BR get_fieldsets.py (1)
